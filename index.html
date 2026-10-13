@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>தமிழக வெற்றிக் கழகம் | அதிகாரப்பூர்வ இணையதள தொடக்க விழா - TVK Manavai Launch</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="தமிழக வெற்றிக் கழகம் (TVK) - மணவை சட்டமன்றத் தொகுதி மக்கள் நல இணையதளங்கள் அதிகாரப்பூர்வ தொடக்க விழா. nammakathiravan.org & manavaimla.com நேரடி துவக்கம்.">
+  <meta name="keywords" content="TVK, Tamilaga Vettri Kazhagam, CM Vijay, Thalapathy Vijay, N Anand, Manapparai MLA, nammakathiravan.org, manavaimla.com, TVK launch">
+  <meta name="author" content="TVK Manapparai">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="தமிழக வெற்றிக் கழகம் | இணையதளங்கள் அதிகாரப்பூர்வ தொடக்க விழா">
+  <meta property="og:description" content="nammakathiravan.org மற்றும் manavaimla.com அதிகாரப்பூர்வமாக மக்கள் பயன்பாட்டிற்கு துவங்கப்படுகிறது.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/tvk_flag.png">
+
+  <!-- Google Fonts for Modern Tamil & English Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800;900&family=Cinzel:wght@700;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/images/tvk_flag.png">
+</head>
+<body class="theme-tvk">
+
+  <!-- Background Animated Canvases: Silk Flag Waves, Stardust & Fireworks -->
+  <canvas id="flag-wave-canvas"></canvas>
+  <canvas id="ambient-canvas"></canvas>
+  <canvas id="celebration-canvas"></canvas>
+
+  <!-- Dynamic Sweeping Stage Lasers -->
+  <div class="stage-laser laser-1"></div>
+  <div class="stage-laser laser-2"></div>
+  <div class="stage-laser laser-3"></div>
+  <div class="stage-laser laser-4"></div>
+
+  <div class="spotlight-beam beam-left"></div>
+  <div class="spotlight-beam beam-right"></div>
+  <div class="spotlight-beam beam-center"></div>
+
+  <!-- TVK Tricolor Party Ribbon Header (Red - Gold - Red) -->
+  <div class="tvk-flag-strip">
+    <div class="strip-red"></div>
+    <div class="strip-yellow">
+      <div class="strip-emblem">
+        <span>★ பிறப்பொக்கும் எல்லா உயிர்க்கும் ★</span>
+      </div>
+    </div>
+    <div class="strip-red"></div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="launch-wrapper">
+
+    <!-- Top Navigation & Stage Controls -->
+    <header class="launch-nav">
+      <div class="nav-brand">
+        <div class="flag-icon-badge">
+          <img src="assets/images/tvk_flag.png" alt="TVK Flag" class="flag-mini-img" onerror="this.style.display='none'; document.getElementById('flag-svg-fallback').style.display='block';">
+          <svg id="flag-svg-fallback" class="flag-svg-badge" viewBox="0 0 100 60" style="display:none;">
+            <rect width="100" height="20" fill="#B31917"/>
+            <rect y="20" width="100" height="20" fill="#FFC72C"/>
+            <rect y="40" width="100" height="20" fill="#B31917"/>
+            <circle cx="50" cy="30" r="7" fill="#8B0000"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="party-name">தமிழக வெற்றிக் கழகம்</span>
+          <span class="sub-branch">மணவை சட்டமன்றத் தொகுதி | திருச்சி மாவட்டம்</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-controls">
+        <button id="btn-sound-test" class="ctrl-btn" title="புதிய சினிமாட்டிக் ஒலியை சோதிக்க (Test Sound)" aria-label="Test Sound">
+          <span class="ctrl-icon">🎵</span>
+          <span class="ctrl-label" id="sound-test-label">ஒலி டெஸ்ட்</span>
+        </button>
+        <button id="btn-sound-toggle" class="ctrl-btn" title="ஒலியை மாற்றுக (Toggle Sound)" aria-label="Toggle Sound">
+          <span class="ctrl-icon" id="sound-icon">🔊</span>
+          <span class="ctrl-label" id="sound-label">ஒலி: ஆன்</span>
+        </button>
+        <button id="btn-fullscreen-toggle" class="ctrl-btn" title="முழுத்திரை (Fullscreen for Projector)" aria-label="Toggle Fullscreen">
+          <span class="ctrl-icon">⛶</span>
+          <span class="ctrl-label">முழுத்திரை</span>
+        </button>
+        <button id="btn-lang-toggle" class="ctrl-btn" title="மொழி மாற்றம் (Language)" aria-label="Toggle Language">
+          <span class="ctrl-icon">🌐</span>
+          <span class="ctrl-label" id="lang-label">English</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN STAGE CONTAINER -->
+    <main class="stage-container" id="main-stage">
+
+      <!-- ==============================================
+           PHASE 1: CLEAN & PRESTIGIOUS HOME PAGE
+           (HEADING: தமிழக வெற்றிக் கழகம், 3 LEADERS ON FRONT, NO BULKY TEXT)
+           ============================================== -->
+      <section class="ceremony-hero" id="pre-launch-section">
+        
+        <!-- Header Badge -->
+        <div class="hero-top-badge">
+          <span class="pulse-dot"></span>
+          <span class="badge-text" data-ta="மக்கள் நல இணையதளங்கள் அதிகாரப்பூர்வ தொடக்க விழா" data-en="Official Grand Web Launch Ceremony">மக்கள் நல இணையதளங்கள் அதிகாரப்பூர்வ தொடக்க விழா</span>
+        </div>
+
+        <!-- MAIN HEADING AS REQUESTED: தமிழக வெற்றிக் கழகம் -->
+        <h1 class="hero-main-title">
+          <span class="title-glow party-grand-heading" data-ta="தமிழக வெற்றிக் கழகம்" data-en="TAMILAGA VETTRI KAZHAGAM">தமிழக வெற்றிக் கழகம்</span>
+          <span class="title-sub" data-ta="மணவை சட்டமன்றத் தொகுதி • அதிகாரப்பூர்வ தொடக்க அரங்கம்" data-en="Manapparai Assembly Constituency • Official Launch Stage">மணவை சட்டமன்றத் தொகுதி • அதிகாரப்பூர்வ தொடக்க அரங்கம்</span>
+        </h1>
+
+        <!-- Short, Punchy Line -->
+        <p class="hero-simple-motto" data-ta="பிறப்பொக்கும் எல்லா உயிர்க்கும் • மக்களோடு... மக்களுக்காக... என்றும் உங்கள் சேவையில்..." data-en="All Are Born Equal • With the People, For the People, Always in Your Service...">
+          பிறப்பொக்கும் எல்லா உயிர்க்கும் • மக்களோடு... மக்களுக்காக... என்றும் உங்கள் சேவையில்...
+        </p>
+
+        <!-- 3 LEADERS ON THE HOME PAGE (CM VIJAY, MINISTER ANAND, MLA KATHIRAVAN) -->
+        <div class="home-leaders-wrap">
+          <div class="leaders-grid">
+            
+            <!-- 1. CM THALAPATHY VIJAY -->
+            <div class="leader-card card-tvk-leader" id="leader-card-vijay">
+              <div class="card-ornament top-ornament"></div>
+              <div class="leader-avatar-frame">
+                <div class="frame-gold-border cm-gold-frame">
+                  <img id="img-vijay" src="assets/images/cm_vijay.jpg" alt="Hon'ble Chief Minister Thalapathy Vijay" class="leader-photo" onerror="this.src='assets/images/count_9.jpg'">
+                </div>
+                <div class="card-party-flag-badge" title="மாண்புமிகு முதலமைச்சர்">
+                  <span class="flag-text">CM</span>
+                </div>
+              </div>
+              <div class="leader-details">
+                <span class="leader-role-tag" data-ta="மாண்புமிகு தமிழ்நாடு முதலமைச்சர்" data-en="Hon'ble Chief Minister of Tamil Nadu">மாண்புமிகு தமிழ்நாடு முதலமைச்சர்</span>
+                <h3 class="leader-name" data-ta="தளபதி விஜய்" data-en="Thalapathy Vijay">தளபதி விஜய்</h3>
+                <div class="leader-status-chip">
+                  <span class="chip-star">★</span>
+                  <span data-ta="தமிழக வெற்றிக் கழகத் தலைவர்" data-en="President, TVK">தமிழக வெற்றிக் கழகத் தலைவர்</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. WATER RESOURCES MINISTER N. ANAND -->
+            <div class="leader-card card-minister" id="leader-card-anand">
+              <div class="card-ornament top-ornament"></div>
+              <div class="leader-avatar-frame">
+                <div class="frame-gold-border minister-frame">
+                  <img id="img-anand" src="assets/images/n_anand.jpg" alt="Hon'ble Minister N. Anand" class="leader-photo" onerror="this.src='assets/images/count_4.jpg'">
+                </div>
+                <div class="card-party-flag-badge badge-minister" title="நீர்வளத்துறை அமைச்சர்">
+                  <span class="flag-text">TVK</span>
+                </div>
+              </div>
+              <div class="leader-details">
+                <span class="leader-role-tag" data-ta="மாண்புமிகு நீர்வளத்துறை & ஊரக வளர்ச்சித்துறை அமைச்சர்" data-en="Hon'ble Minister for Water Resources">மாண்புமிகு நீர்வளத்துறை & ஊரக வளர்ச்சித்துறை அமைச்சர்</span>
+                <h3 class="leader-name" data-ta="என். ஆனந்த்" data-en="N. Anand (Bussy Anand)">என். ஆனந்த்</h3>
+                <div class="leader-status-chip chip-minister">
+                  <span class="chip-star">💧</span>
+                  <span data-ta="தவெக பொதுச்செயலாளர்" data-en="General Secretary, TVK">தவெக பொதுச்செயலாளர்</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. MANAVAI MLA R. KATHIRAVAN -->
+            <div class="leader-card card-mla" id="leader-card-mla">
+              <div class="card-ornament top-ornament"></div>
+              <div class="leader-avatar-frame">
+                <div class="frame-gold-border mla-frame">
+                  <img id="img-kathiravan" src="assets/images/kathiravan.jpg" alt="Manavai MLA R. Kathiravan" class="leader-photo" onerror="this.src='assets/images/tvk_flag.png'">
+                </div>
+                <div class="card-party-flag-badge badge-mla" title="மணவை சட்டமன்ற தொகுதி">
+                  <span class="flag-text">MLA</span>
+                </div>
+              </div>
+              <div class="leader-details">
+                <span class="leader-role-tag" data-ta="மணவை சட்டமன்ற உறுப்பினர்" data-en="Member of Legislative Assembly (Manapparai)">மணவை சட்டமன்ற உறுப்பினர்</span>
+                <h3 class="leader-name" data-ta="இரா. கதிரவன்" data-en="R. Kathiravan">இரா. கதிரவன்</h3>
+                <div class="leader-status-chip chip-mla">
+                  <span class="chip-star">✓</span>
+                  <span data-ta="களப்பணி நாயகன்" data-en="Constituency Field Leader">களப்பணி நாயகன்</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- THE GRAND CENTRAL LAUNCH BUTTON -->
+        <div class="launch-action-zone">
+          <div class="action-glow-ring"></div>
+          <button id="btn-master-launch" class="btn-royal-launch" aria-label="Launch the websites now">
+            <span class="btn-stars-bg"></span>
+            <span class="btn-inner-content">
+              <span class="btn-sparkle-icon">✨</span>
+              <span class="btn-primary-text" data-ta="இணையதளங்களை துவங்கி வைக்கவும்" data-en="OFFICIALLY LAUNCH PORTALS NOW">இணையதளங்களை துவங்கி வைக்கவும்</span>
+              <span class="btn-sub-text" data-ta="10 வினாடி நேரடி கவுண்ட்டவுனுடன் திறக்க அழுத்தவும்" data-en="Press to initiate 10-second stage countdown">10 வினாடி நேரடி கவுண்ட்டவுனுடன் திறக்க அழுத்தவும் ➔</span>
+            </span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ==============================================
+           PHASE 2: THE 10-SECOND COUNTDOWN OVERLAY
+           (CARD WITH UNIFORM SIZE, AMBIENT BACKGROUND, UNCLIPPED VIJAY PHOTO & COUNT ON TOP)
+           ============================================== -->
+      <section class="countdown-overlay" id="countdown-overlay" style="display: none;" aria-hidden="true">
+        <div class="countdown-backdrop-glow"></div>
+        
+        <div class="countdown-card">
+          <div class="countdown-badge">
+            <span class="pulse-beacon"></span>
+            <span data-ta="அதிகாரப்பூர்வ நேரடி தொடக்க கவுண்ட்டவுன்" data-en="OFFICIAL LIVE LAUNCH COUNTDOWN">அதிகாரப்பூர்வ நேரடி தொடக்க கவுண்ட்டவுன்</span>
+          </div>
+
+          <!-- THE PERFECT COUNTDOWN STAGE CARD -->
+          <div class="countdown-stage-card">
+            
+            <!-- 1. Ambient Blurred Card Background (Never jumps, sets atmospheric tint) -->
+            <div class="card-backdrop-ambient">
+              <img id="cm-vijay-ambient-blur" src="assets/images/count_10.jpg" alt="Ambient Blur" class="ambient-blur-img">
+              <div class="ambient-dark-mesh"></div>
+            </div>
+
+            <!-- 2. The Main Uncropped Full-View Vijay Photo (Entire sides and face visible!) -->
+            <div class="card-photo-viewport">
+              <img id="cm-vijay-countdown-img" src="assets/images/count_10.jpg" alt="CM Thalapathy Vijay" class="cm-vijay-main-photo" onerror="this.src='assets/images/cm_vijay.jpg'">
+            </div>
+
+            <!-- 3. Overlaid Countdown Dial & Large 3D Number Directly On Top -->
+            <div class="card-countdown-dial-overlay">
+              <svg class="countdown-svg" viewBox="0 0 240 240">
+                <circle class="ring-bg" cx="120" cy="120" r="105"></circle>
+                <circle id="ring-progress" class="ring-active" cx="120" cy="120" r="105"></circle>
+              </svg>
+              <div class="countdown-number-box">
+                <span id="countdown-digits" class="count-number">10</span>
+                <span class="count-unit" data-ta="விநாடிகள்" data-en="SECONDS">விநாடிகள்</span>
+              </div>
+            </div>
+
+            <!-- 4. Overlaid Bottom Caption Bar -->
+            <div class="card-bottom-caption">
+              <span class="caption-cm-badge" id="cm-tag-text">மாண்புமிகு முதலமைச்சர்</span>
+              <p class="caption-cm-quote" id="countdown-dynamic-slogan">10: மாற்றத்திற்கான புதிய விடியல் - மக்கள் முதல்வர் தளபதி விஜய்</p>
+            </div>
+
+          </div>
+
+          <!-- Countdown Progress Dots (1 to 10) -->
+          <div class="countdown-dots-track" id="countdown-dots">
+            <span class="c-dot active" data-sec="10"></span>
+            <span class="c-dot active" data-sec="9"></span>
+            <span class="c-dot active" data-sec="8"></span>
+            <span class="c-dot active" data-sec="7"></span>
+            <span class="c-dot active" data-sec="6"></span>
+            <span class="c-dot active" data-sec="5"></span>
+            <span class="c-dot active" data-sec="4"></span>
+            <span class="c-dot active" data-sec="3"></span>
+            <span class="c-dot active" data-sec="2"></span>
+            <span class="c-dot active" data-sec="1"></span>
+          </div>
+
+          <!-- Skip / Quick Launch button for stage coordinators -->
+          <button id="btn-skip-countdown" class="btn-skip" title="நேரடியாக துவங்குக" data-ta="நேரடியாக துவங்குக ⏩" data-en="Skip Countdown ⏩">
+            நேரடியாக துவங்குக ⏩
+          </button>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           PHASE 3: POST-LAUNCH (ONLY THE 2 PORTAL LINKS SHOW UP!)
+           ============================================== -->
+      <section class="reveal-section" id="post-launch-section" style="display: none;">
+
+        <!-- Official Launch Success Announcement Ribbon -->
+        <div class="celebration-hero-banner">
+          <div class="banner-sparkle-left">🎉</div>
+          <div class="banner-content">
+            <div class="banner-crown-badge">
+              <span class="crown-icon">👑</span>
+              <span class="crown-text" data-ta="வெற்றிகரமான துவக்கம்" data-en="OFFICIALLY LAUNCHED">வெற்றிகரமான துவக்கம்</span>
+            </div>
+            <h2 class="banner-heading" data-ta="மக்கள் பயன்பாட்டிற்கு அதிகாரப்பூர்வமாக துவங்கி வைக்கப்பட்டது!" data-en="Portals Successfully Dedicated to the People!">
+              மக்கள் பயன்பாட்டிற்கு அதிகாரப்பூர்வமாக துவங்கி வைக்கப்பட்டது!
+            </h2>
+            <p class="banner-slogan" data-ta="பிறப்பொக்கும் எல்லா உயிர்க்கும் • மக்கள் குரல் வெல்லும் தருணம்" data-en="All Are Born Equal • When The Voice Of The People Wins">
+              பிறப்பொக்கும் எல்லா உயிர்க்கும் • மக்கள் குரல் வெல்லும் தருணம்
+            </p>
+          </div>
+          <div class="banner-sparkle-right">🎊</div>
+        </div>
+
+        <!-- ==========================================
+             ONLY THE 2 OFFICIALLY LAUNCHED WEBSITES
+             nammakathiravan.org & manavaimla.com
+             ========================================== -->
+        <div class="launched-portals-section">
+          
+          <div class="section-title-tag">
+            <span class="gold-line"></span>
+            <span class="tag-label highlight-glow" data-ta="தொடங்கப்பட்ட அதிகாரப்பூர்வ மக்கள் சேவை தளங்கள்" data-en="OFFICIALLY LAUNCHED DIGITAL PORTALS">தொடங்கப்பட்ட அதிகாரப்பூர்வ மக்கள் சேவை தளங்கள்</span>
+            <span class="gold-line"></span>
+          </div>
+
+          <div class="portals-dual-grid">
+
+            <!-- PORTAL 1: nammakathiravan.org -->
+            <div class="portal-card card-portal-kathiravan">
+              <div class="portal-card-glow"></div>
+              
+              <div class="portal-badge-strip">
+                <span class="status-live-dot"></span>
+                <span class="portal-badge-text" data-ta="மக்கள் சேவை & குறைதீர்க்கும் தளம்" data-en="Citizen Grievance & Public Portal">மக்கள் சேவை & குறைதீர்க்கும் தளம்</span>
+                <span class="portal-verified">✓ நேரலையில் (LIVE)</span>
+              </div>
+
+              <div class="portal-main-info">
+                <div class="portal-icon-circle">
+                  <svg viewBox="0 0 24 24" class="p-svg" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="portal-headings">
+                  <span class="portal-url-label">OFFICIAL PORTAL</span>
+                  <h3 class="portal-domain-title">nammakathiravan.org</h3>
+                  <h4 class="portal-tamil-title">நம்ம கதிரவன் மக்கள் நலத் தளம்</h4>
+                </div>
+              </div>
+
+              <div class="portal-features-list">
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="ஆன்லைன் புகார் & மனு பதிவு (Grievance Redressal)" data-en="Online Grievance & Petition Submission">ஆன்லைன் புகார் & மனு பதிவு (Grievance Redressal)</span>
+                </div>
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="மனுவின் தற்போதைய நிலையை உடனுக்குடன் அறிதல்" data-en="Real-time Tracking of Petition Status">மனுவின் தற்போதைய நிலையை உடனுக்குடன் அறிதல்</span>
+                </div>
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="களப்பணி உதவிகள் & சமூக நல திட்டங்கள்" data-en="Constituency Field Works & Welfare Schemes">களப்பணி உதவிகள் & சமூக நல திட்டங்கள்</span>
+                </div>
+              </div>
+
+              <div class="portal-actions-wrapper">
+                <a href="https://nammakathiravan.org" target="_blank" rel="noopener noreferrer" class="btn-portal-launch btn-open-site" id="btn-open-nammakathiravan">
+                  <span class="btn-action-text" data-ta="இணையதளத்திற்கு செல்க ↗" data-en="Visit nammakathiravan.org ↗">இணையதளத்திற்கு செல்க ↗</span>
+                </a>
+                
+                <div class="secondary-portal-btns">
+                  <button class="btn-qr-popup" onclick="showQrModal('https://nammakathiravan.org', 'நம்ம கதிரவன்', 'nammakathiravan.org')" title="QR குறியீடு காண்க">
+                    <span>📱 QR குறியீடு</span>
+                  </button>
+                  <button class="btn-copy-url" onclick="copySiteLink('https://nammakathiravan.org', this)" title="இணைப்பை நகலெடு">
+                    <span>📋 நகலெடு</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- PORTAL 2: manavaimla.com -->
+            <div class="portal-card card-portal-manavai">
+              <div class="portal-card-glow"></div>
+
+              <div class="portal-badge-strip">
+                <span class="status-live-dot"></span>
+                <span class="portal-badge-text" data-ta="அதிகாரப்பூர்வ சட்டமன்ற தொகுதி தளம்" data-en="Official Legislative Constituency Portal">அதிகாரப்பூர்வ சட்டமன்ற தொகுதி தளம்</span>
+                <span class="portal-verified">✓ நேரலையில் (LIVE)</span>
+              </div>
+
+              <div class="portal-main-info">
+                <div class="portal-icon-circle gold-circle">
+                  <svg viewBox="0 0 24 24" class="p-svg" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                    <line x1="8" x2="16" y1="21" y2="21"></line>
+                    <line x1="12" x2="12" y1="17" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="portal-headings">
+                  <span class="portal-url-label">OFFICIAL PORTAL</span>
+                  <h3 class="portal-domain-title">manavaimla.com</h3>
+                  <h4 class="portal-tamil-title">மணவை MLA மக்கள் சேவை தளம்</h4>
+                </div>
+              </div>
+
+              <div class="portal-features-list">
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="குடிநீர், சாலை, தெருவிளக்கு உள்ளிட்ட 10+ சேவைகள்" data-en="10+ Public Civic Amenities (Water, Road, Lights)">குடிநீர், சாலை, தெருவிளக்கு உள்ளிட்ட 10+ சேவைகள்</span>
+                </div>
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="சட்டமன்ற தொகுதி வளர்ச்சி பணிகள் & உரைகள்" data-en="Legislative Assembly Works & Speeches">சட்டமன்ற தொகுதி வளர்ச்சி பணிகள் & உரைகள்</span>
+                </div>
+                <div class="feature-item">
+                  <span class="f-bullet">✓</span>
+                  <span data-ta="&quot;ஒரு குறை… ஒரு பதிவு… ஒரு தீர்வை நோக்கிய பயணம்…&quot;" data-en="&quot;One Issue... One Registration... A Journey To Solution&quot;">&quot;ஒரு குறை… ஒரு பதிவு… ஒரு தீர்வை நோக்கிய பயணம்…&quot;</span>
+                </div>
+              </div>
+
+              <div class="portal-actions-wrapper">
+                <a href="https://manavaimla.com" target="_blank" rel="noopener noreferrer" class="btn-portal-launch btn-open-site gold-action" id="btn-open-manavaimla">
+                  <span class="btn-action-text" data-ta="இணையதளத்திற்கு செல்க ↗" data-en="Visit manavaimla.com ↗">இணையதளத்திற்கு செல்க ↗</span>
+                </a>
+                
+                <div class="secondary-portal-btns">
+                  <button class="btn-qr-popup" onclick="showQrModal('https://manavaimla.com', 'மணவை MLA தளம்', 'manavaimla.com')" title="QR குறியீடு காண்க">
+                    <span>📱 QR குறியீடு</span>
+                  </button>
+                  <button class="btn-copy-url" onclick="copySiteLink('https://manavaimla.com', this)" title="இணைப்பை நகலெடு">
+                    <span>📋 நகலெடு</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STAGE CELEBRATION TOOLS & SHARE ROW -->
+        <div class="stage-celebration-toolbar">
+          
+          <button id="btn-fireworks-again" class="btn-toolbar-action" title="வெடி கொண்டாட்டத்தை மீண்டும் துவக்கு">
+            <span class="tool-icon">🎆</span>
+            <span data-ta="வெற்றி கொண்டாட்டம் 🎊" data-en="Blast Fireworks 🎊">வெற்றி கொண்டாட்டம் 🎊</span>
+          </button>
+
+          <button id="btn-replay-countdown" class="btn-toolbar-action secondary" title="துவக்க காட்சியை மீண்டும் காண">
+            <span class="tool-icon">🔄</span>
+            <span data-ta="மீண்டும் கவுண்ட்டவுன் காண்க" data-en="Replay Countdown">மீண்டும் கவுண்ட்டவுன் காண்க</span>
+          </button>
+
+          <button id="btn-share-whatsapp" class="btn-toolbar-action whatsapp" title="வாட்ஸ்அப்பில் பகிருங்கள்">
+            <span class="tool-icon">💬</span>
+            <span data-ta="வாட்ஸ்அப்பில் பகிர்க" data-en="Share on WhatsApp">வாட்ஸ்அப்பில் பகிர்க</span>
+          </button>
+
+          <button id="btn-copy-all" class="btn-toolbar-action copy" title="அனைத்து இணைப்புகளையும் நகலெடு">
+            <span class="tool-icon">🔗</span>
+            <span data-ta="இணைப்புகளை பகிர்க" data-en="Copy Launch Links">இணைப்புகளை பகிர்க</span>
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER WITH TVK EMBLEM & CREDITS -->
+    <footer class="launch-footer">
+      <div class="footer-inner">
+        <div class="footer-emblem-wrap">
+          <img src="assets/images/tvk_flag.png" alt="TVK Flag" class="footer-flag-img" onerror="this.style.display='none'">
+        </div>
+        <div class="footer-text-block">
+          <p class="footer-slogan">"பிறப்பொக்கும் எல்லா உயிர்க்கும் • மக்களோடு... மக்களுக்காக... என்றும்..."</p>
+          <p class="footer-rights">© 2026 தமிழக வெற்றிக் கழகம் | மணவை சட்டமன்றத் தொகுதி | அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- QR Code Modal -->
+  <div id="modal-qr" class="modal-backdrop" style="display:none;" onclick="closeModalOnBackdrop(event, 'modal-qr')">
+    <div class="modal-window">
+      <button class="modal-close" onclick="closeModal('modal-qr')">&times;</button>
+      <div class="modal-header">
+        <span class="modal-icon">📱</span>
+        <h3 id="modal-qr-title" class="modal-title">QR குறியீடு</h3>
+        <p id="modal-qr-url" class="modal-subtitle">https://nammakathiravan.org</p>
+      </div>
+      <div class="modal-body-qr">
+        <div class="qr-canvas-holder">
+          <img id="qr-image" src="" alt="Site QR Code" class="qr-img">
+        </div>
+        <p class="qr-helper-text" data-ta="உங்கள் மொபைல் கேமரா மூலம் இந்த QR குறியீட்டை ஸ்கேன் செய்து உடனடியாக தளத்தை பார்வையிடலாம்." data-en="Scan this QR code with your mobile camera to instantly open the website.">
+          உங்கள் மொபைல் கேமரா மூலம் இந்த QR குறியீட்டை ஸ்கேன் செய்து உடனடியாக தளத்தை பார்வையிடலாம்.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a id="qr-direct-link" href="#" target="_blank" class="btn-royal-small">நேரடியாக திறக்க ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Alert -->
+  <div id="toast-notify" class="toast-popup" style="display:none;">
+    <span id="toast-text">செய்தி நகலெடுக்கப்பட்டது!</span>
+  </div>
+
+  <!-- Script Execution -->
+  <script src="script.js"></script>
+</body>
+</html>
